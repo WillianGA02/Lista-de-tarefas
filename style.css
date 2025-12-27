@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+body{
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(2, 135, 224);
+    color: white;
+}
+
+#titulo{
+    background-color: rgb(25, 86, 139);
+    border-radius: 15px;
+    padding: 10px 2px 10px 2px;
+    color: rgb(255, 255, 255);
+    margin-top: 20px;
+}
+
+#container{
+    min-width: 600px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to bottom, rgb(94, 196, 255), rgb(2, 146, 202), rgb(80, 199, 255));
+    border: 3px solid rgb(0, 255, 255);
+    border-radius: 20px;
+}
+
+
+
+label{
+    font-size: 30px;
+    font-weight: bolder;
+    margin-bottom: 15px;
+}
+
+#anotacao{
+    font-size: 15px;
+    padding: 4px;
+    border-radius: 15px;
+    background-image:linear-gradient(to bottom, rgb(2, 89, 139), rgb(2, 146, 202), rgb(80, 199, 255));
+    color: rgb(255, 255, 255);
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+#bottom{
+    background-image:linear-gradient(to bottom, rgb(2, 89, 139), rgb(2, 146, 202), rgb(7, 92, 131));
+    padding: 2px 5px 2px 5px;
+    color: white;
+    border-radius: 45px;
+    margin-bottom: 15px;
+}
+
+li{
+    background-image:linear-gradient(to bottom, rgb(31, 129, 185), rgb(36, 126, 161), rgb(42, 75, 90));
+    border-radius: 10px;
+    margin-bottom: 5px;
+    padding: 5px;
+    height: auto;
+    min-width: 500px;
+}
+
+ul{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: red;
+    font-weight: bold;
+    margin-right: 15px;
+    background-color: rgb(0, 174, 255);
+    border-radius: 15px;
+    padding: 2px;
+}
+
+@media (max-width: 650px){
+    #container{
+        min-width: 300px;
+    }
+
+    li{
+        min-width: 250px;
+    }
+
+    #bottom{
+        font-size: 20px
+    }
+}
+
