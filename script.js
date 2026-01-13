@@ -1,48 +1,58 @@
-let listElment = document.getElementById("ul")
-let inputElement = document.getElementById("anotacao")
-let buttonElement = document.getElementById("bottom")
-
-let tarefas = []
-
-function mostrarTarefa(){
-    listElment.innerHTML = ''
-
-    tarefas.map((todo)=>{
-        let liElement = document.createElement("li")
-        let textElement = document.createTextNode(todo)
+let ulElement = document.getElementById('ulElement')
+let form = document.getElementById('form')
+let conteudo = document.getElementById('text')
+let lista = JSON.parse(localStorage.getItem('lista')) || []
 
 
-        let aElement = document.createElement("a")
-        aElement.setAttribute("href", "#")
-        let exElement = document.createTextNode("Excluir")
-        aElement.appendChild(exElement)
+mostrarLista()
 
-        let posicao = tarefas.indexOf(todo)
+form.addEventListener('submit', ((e) => {
+    e.preventDefault()
 
-        aElement.setAttribute("onclick", `DeletarTarefa(${posicao})`)
+    const dados = new FormData(form)
 
-        
+    let text = dados.get('text')
+
+    if (text === '') {
+
+    } else {
+        lista.push(text)
+
+        localStorage.setItem('lista', JSON.stringify(lista)) 
+        mostrarLista()
+    }
+
+
+}))
+
+function mostrarLista() {
+    ulElement.innerHTML = ''
+    conteudo.value = ''
+
+    lista.map((todo, index) => {
+        let liElement = document.createElement('li')
+        let liText = document.createTextNode(todo)
+        let aElement = document.createElement('a')
+        let aText = document.createTextNode('Excluir')
+        aElement.appendChild(aText)
+        aElement.href = '#'
+
+        aElement.addEventListener('click', (()=>{
+            lista.splice(index, 1)
+
+            localStorage.setItem('lista', JSON.stringify(lista))
+
+            mostrarLista()
+        }))
+
+        liElement.appendChild(liText)
 
         liElement.appendChild(aElement)
-        liElement.appendChild(textElement)
-        listElment.appendChild(liElement)
+
+        ulElement.appendChild(liElement)
     })
-}
 
-function AdicionarTarefas(){
-    if(inputElement.value == ''){
-        alert("Você não digitou nenhuma tarefa!!!")
-        return false
-    }else{
-        let novaTarefa = inputElement.value
-        tarefas.push(novaTarefa)
-        inputElement.value = ''
+   
 
-        mostrarTarefa()
-    }
-}
-
-function DeletarTarefa(posicao){
-    tarefas.splice(posicao, 1)
-    mostrarTarefa()
+   
 }
