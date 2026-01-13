@@ -33,7 +33,7 @@ function mostrarLista() {
         let liElement = document.createElement('li')
         let liText = document.createTextNode(todo)
         let aElement = document.createElement('a')
-        let aText = document.createTextNode('Excluir')
+        let aText = document.createTextNode('|Excluir')
         aElement.appendChild(aText)
         aElement.href = '#'
 
@@ -55,4 +55,5 @@ function mostrarLista() {
    
 
    
+
 }
